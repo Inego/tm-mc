@@ -10,6 +10,11 @@ namespace TM_MC
         public string name;
         public Tile tile1;
         public Tile tile2;
-        public int faction; // 0 if no bridge
+
+        public Bridge(Tile tile1, Tile tile2)
+        {
+            this.tile1 = tile1;
+            this.tile2 = tile2;
+        }
     }
 }

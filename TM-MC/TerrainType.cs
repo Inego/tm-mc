@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 
 
 namespace TM_MC
@@ -8,13 +9,21 @@ namespace TM_MC
     {
         public string name;
         public int code;
+        public Color color;
+        public Color color2;
+        public Pen pen;
+        public Brush brush;
+        public Brush brush2;
 
         private static List<TerrainType> list = null;
 
-        private TerrainType(string name, int code)
+        private TerrainType(string name, int code, string color, string color2)
         {
             this.name = name;
             this.code = code;
+            this.color = ColorTranslator.FromHtml(color);
+            this.pen = new Pen(this.color);
+            this.brush = new SolidBrush(this.color);
         }
 
         static TerrainType()
@@ -22,14 +31,14 @@ namespace TM_MC
 
             list = new List<TerrainType>();
 
-            list.Add(new TerrainType("None",      0));       
-            list.Add(new TerrainType("Plains",    1));       
-            list.Add(new TerrainType("Swamp",     2));        
-            list.Add(new TerrainType("Lakes",     3));        
-            list.Add(new TerrainType("Forest",    4));       
-            list.Add(new TerrainType("Mountains", 5));    
-            list.Add(new TerrainType("Wasteland", 6));    
-            list.Add(new TerrainType("Desert",    7));       
+            list.Add(new TerrainType("None", 0, "#ffffff", "#ffffff"));
+            list.Add(new TerrainType("Plains", 1, "#b08040", "#a06040"));
+            list.Add(new TerrainType("Swamp", 2, "#404040", "#000000"));
+            list.Add(new TerrainType("Lakes", 3, "#60c0f0", "#2080f0"));
+            list.Add(new TerrainType("Forest", 4, "#80f080", "#40a040"));
+            list.Add(new TerrainType("Mountains", 5, "#c0c0c0", "#808080"));
+            list.Add(new TerrainType("Wasteland", 6, "#f08080", "#e04040"));
+            list.Add(new TerrainType("Desert", 7, "#f0f080", "#e0e040"));
 
         }
 

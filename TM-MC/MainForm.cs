@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,11 +36,22 @@ namespace TM_MC
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            Pen myPen;
-            myPen = new Pen(Color.Red);
             Graphics formGraphics = this.CreateGraphics();
-            formGraphics.DrawLine(myPen, 0, 0, 200, 200);
-            myPen.Dispose();
+
+            formGraphics.SmoothingMode = SmoothingMode.AntiAlias;
+
+            foreach (Bridge b in m.bridges)
+            {
+                formGraphics.DrawLine(Pens.Black, b.tile1.centerX, b.tile1.centerY, b.tile2.centerX, b.tile2.centerY);
+            }
+
+            foreach (Tile t in m.tiles)
+            {
+                formGraphics.FillPolygon(t.type.brush, t.hex);
+            }
+
+            
+
             formGraphics.Dispose();
         }
     }
