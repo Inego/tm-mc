@@ -53,6 +53,11 @@ namespace TM_MC
             
 
             formGraphics.Dispose();
+
+
+            GameSetupForm f = new GameSetupForm();
+
+            f.Show();
         }
     }
 }
