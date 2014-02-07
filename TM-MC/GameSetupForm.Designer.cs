@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton5Players = new System.Windows.Forms.RadioButton();
             this.radioButton4Players = new System.Windows.Forms.RadioButton();
@@ -52,9 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.playerConfigurationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerConfigurationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -298,10 +295,6 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Faction";
             // 
-            // playerConfigurationBindingSource
-            // 
-            this.playerConfigurationBindingSource.DataSource = typeof(TM_MC.PlayerConfiguration);
-            // 
             // GameSetupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,7 +324,6 @@
             this.Load += new System.EventHandler(this.GameSetupForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playerConfigurationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,7 +336,6 @@
         private System.Windows.Forms.RadioButton radioButton5Players;
         private System.Windows.Forms.RadioButton radioButton4Players;
         private System.Windows.Forms.RadioButton radioButton3Players;
-        private System.Windows.Forms.BindingSource playerConfigurationBindingSource;
         private System.Windows.Forms.TextBox playerName1;
         private System.Windows.Forms.TextBox playerName2;
         private System.Windows.Forms.TextBox playerName3;

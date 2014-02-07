@@ -39,13 +39,36 @@ namespace TM_MC
     }
 
 
-    class PlayerConfiguration
+    class Player
     {
+        
         public string name;
         public bool human;
         public int faction;
 
-        public PlayerConfiguration(string name, bool human, int faction)
+        public int money = 0;
+        public int workers = 0;
+        public int priests = 0;
+        public int priestsMax = 7;
+
+        public int power1 = 0;
+        public int power2 = 0;
+        public int power3 = 0;
+
+        public int fire = 0;
+        public int water = 0;
+        public int earth = 0;
+        public int air = 0;
+
+        public int bridges = 0;
+
+        public int dwellings = 0;
+        public int tradePosts = 0;
+        public int temples = 0;
+        public bool sanctuary = false;
+        public bool stronghold = false;
+
+        public Player(string name, bool human, int faction)
         {
             this.name = name;
             this.human = human;

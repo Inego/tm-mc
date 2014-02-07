@@ -50,6 +50,7 @@
     <Compile Include="FactionConfigurationListForm.Designer.cs">
       <DependentUpon>FactionConfigurationListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="GameSetup.cs" />
     <Compile Include="GameSetupForm.cs">
       <SubType>Form</SubType>
@@ -57,7 +58,8 @@
     <Compile Include="GameSetupForm.Designer.cs">
       <DependentUpon>GameSetupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlayerConfiguration.cs" />
+    <Compile Include="GameStages.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="TerrainType.cs" />
     <Compile Include="Bridge.cs" />
     <Compile Include="Factions.cs" />

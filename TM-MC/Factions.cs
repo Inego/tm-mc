@@ -28,6 +28,8 @@ namespace TM_MC
         {
             switch (code)
             {
+                case 0:
+                    return "Generic";
                 case 1:
                     return "Fakirs";
                 case 2:
@@ -66,7 +68,20 @@ namespace TM_MC
 
     class Faction
     {
-        FactionCode type;
+        public static Faction[] factions = new Faction[14];
+
+        public static void AddFaction(int)
+        {
+        }
+
+
+        int type;
         public string name;
+
+        public Faction(int type)
+        {
+            this.type = type;
+            this.name = FactionCode.name(type);
+        }
     }
 }

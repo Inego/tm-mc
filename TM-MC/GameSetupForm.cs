@@ -76,7 +76,7 @@ namespace TM_MC
 
         private void SwitchPlayerControl(int p)
         {
-            PlayerConfiguration pc = gs.players[p - 1];
+            Player pc = gs.players[p - 1];
 
             pc.human = !pc.human;
 
@@ -117,7 +117,7 @@ namespace TM_MC
 
         private void SelectPlayerFaction(int p)
         {
-            PlayerConfiguration pc = gs.players[p - 1];
+            Player pc = gs.players[p - 1];
             
             FactionConfigurationListForm fclf = new FactionConfigurationListForm();
 
