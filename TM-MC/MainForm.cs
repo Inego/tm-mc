@@ -40,10 +40,10 @@ namespace TM_MC
 
             formGraphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            foreach (Bridge b in m.bridges)
-            {
-                formGraphics.DrawLine(Pens.Black, b.tile1.centerX, b.tile1.centerY, b.tile2.centerX, b.tile2.centerY);
-            }
+            //foreach (Bridge b in m.bridges)
+            //{
+            //    formGraphics.DrawLine(Pens.Black, b.tile1.centerX, b.tile1.centerY, b.tile2.centerX, b.tile2.centerY);
+            //}
 
             foreach (Tile t in m.tiles)
             {
@@ -55,9 +55,9 @@ namespace TM_MC
             formGraphics.Dispose();
 
 
-            GameSetupForm f = new GameSetupForm();
+            //GameSetupForm f = new GameSetupForm();
 
-            f.Show();
+            //f.Show();
         }
     }
 }

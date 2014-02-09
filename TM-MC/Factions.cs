@@ -68,20 +68,102 @@ namespace TM_MC
 
     class Faction
     {
-        public static Faction[] factions = new Faction[14];
-
-        public static void AddFaction(int)
-        {
-        }
-
-
+        
         int type;
+        
         public string name;
+        
+        public int startingWorkers;
+        public int startingCoins;
+        public int startingPriests;
+        
+        public int startingFire;
+        public int startingWater;
+        public int startingEarth;
+        public int startingAir;
+
+        public int[] TP_PowerIncome;
+        public int[] TP_CoinsIncome;
+
+        public int startingPower; // starting power in Bowl2; Bowl1 will have 12 - Bowl2.
 
         public Faction(int type)
         {
+
             this.type = type;
             this.name = FactionCode.name(type);
+
+            switch (type)
+            {
+                case FactionCode.Nomads:
+                case FactionCode.Alchemists:
+                    TP_PowerIncome = new int[] { 1, 1, 1, 1 };
+                    TP_CoinsIncome = new int[] { 2, 2, 3, 4 };
+                    break;
+                case FactionCode.Swarmlings:
+                    TP_PowerIncome = new int[] { 2, 2, 2, 2 };
+                    TP_CoinsIncome = new int[] { 2, 2, 2, 3 };
+                    break;
+                case FactionCode.Dwarves:
+                    TP_PowerIncome = new int[] { 1, 1, 2, 2 };
+                    TP_CoinsIncome = new int[] { 3, 2, 2, 3 };
+                    break;
+                default:
+                    TP_PowerIncome = new int[] { 1, 1, 2, 2 };
+                    TP_CoinsIncome = new int[] { 2, 2, 2, 2 };
+                    break;
+            }
+
         }
+
+        public static Faction[] factions = new Faction[14];
+
+        public static void AddFaction(int type,
+            int startingCoins,
+            int startingWorkers,
+            int startingPriests,
+            int startingFire,
+            int startingWater,
+            int startingEarth,
+            int startingAir,
+            int startingPower)
+        {
+            factions[type] = new Faction(type);
+
+            Faction f = factions[type];
+
+            f.startingWorkers = startingWorkers;
+            f.startingCoins = startingWorkers;
+            f.startingPriests = startingPriests;
+            f.startingFire = startingFire;
+            f.startingWater = startingWater;
+            f.startingEarth = startingEarth;
+            f.startingAir = startingAir;
+            f.startingPower = startingPower;
+        }
+
+        static Faction()
+        {
+            AddFaction(FactionCode.Fakirs,         3, 15, 0, 1, 0, 0, 1, 5);
+            AddFaction(FactionCode.Nomads,         2, 15, 0, 1, 0, 1, 0, 7);
+            AddFaction(FactionCode.ChaosMagicians, 4, 15, 0, 2, 0, 0, 0, 7);
+            AddFaction(FactionCode.Giants,         3, 15, 0, 1, 0, 0, 1, 7);
+            AddFaction(FactionCode.Swarmlings,     8, 20, 0, 1, 1, 1, 1, 9);
+            AddFaction(FactionCode.Mermaids,       3, 15, 0, 0, 2, 0, 0, 9);
+            AddFaction(FactionCode.Dwarves,        3, 15, 0, 0, 0, 2, 0, 7);
+            AddFaction(FactionCode.Engineers,      2, 10, 0, 0, 0, 0, 0, 9);
+            AddFaction(FactionCode.Halflings,      3, 15, 0, 0, 0, 1, 1, 9);
+            AddFaction(FactionCode.Cultists,       3, 15, 0, 1, 0, 1, 0, 7);
+            AddFaction(FactionCode.Alchemists,     3, 15, 0, 1, 1, 0, 0, 7);
+            AddFaction(FactionCode.Darklings,      1, 15, 1, 0, 1, 1, 0, 7);
+            AddFaction(FactionCode.Auren,          3, 15, 0, 0, 1, 0, 1, 7);
+            AddFaction(FactionCode.Witches,        3, 15, 0, 0, 0, 0, 2, 7);
+        }
+
+
+
+        
+
+        
     }
 }
