@@ -16,7 +16,7 @@ namespace TM_MC
 
         private StaticMap m = new StaticMap();
 
-
+        Game g;
 
         public MainForm()
         {
@@ -36,23 +36,28 @@ namespace TM_MC
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            Graphics formGraphics = this.CreateGraphics();
+            //Graphics formGraphics = this.CreateGraphics();
 
-            formGraphics.SmoothingMode = SmoothingMode.AntiAlias;
+            //formGraphics.SmoothingMode = SmoothingMode.AntiAlias;
 
             //foreach (Bridge b in m.bridges)
             //{
             //    formGraphics.DrawLine(Pens.Black, b.tile1.centerX, b.tile1.centerY, b.tile2.centerX, b.tile2.centerY);
             //}
 
-            foreach (Tile t in m.tiles)
-            {
-                formGraphics.FillPolygon(t.type.brush, t.hex);
-            }
+            //foreach (Tile t in m.tiles)
+            //{
+            //    formGraphics.FillPolygon(t.type.brush, t.hex);
+            //}
 
             
 
-            formGraphics.Dispose();
+            //formGraphics.Dispose();
+
+            GameSetup gs = new GameSetup();
+            gs.numberOfPlayers = 2;
+
+            g = new Game(gs, 0);
 
 
             //GameSetupForm f = new GameSetupForm();

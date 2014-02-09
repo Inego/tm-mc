@@ -51,6 +51,12 @@
       <DependentUpon>FactionConfigurationListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="GameBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameBoard.Designer.cs">
+      <DependentUpon>GameBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameSetup.cs" />
     <Compile Include="GameSetupForm.cs">
       <SubType>Form</SubType>
@@ -75,6 +81,9 @@
     <Compile Include="Tile.cs" />
     <EmbeddedResource Include="FactionConfigurationListForm.resx">
       <DependentUpon>FactionConfigurationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameBoard.resx">
+      <DependentUpon>GameBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameSetupForm.resx">
       <DependentUpon>GameSetupForm.cs</DependentUpon>

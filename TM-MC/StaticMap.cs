@@ -16,7 +16,7 @@ namespace TM_MC
         public static float  tileHW = tileW / 2;
 
         public static float mapOffsetX = 0;
-        public static float mapOffsetY = tileR;
+        public static float mapOffsetY = 0;
 
         public static PointF[] hexagon = new PointF[]
             {
