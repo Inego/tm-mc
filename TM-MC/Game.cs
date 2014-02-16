@@ -136,8 +136,33 @@ namespace TM_MC
             }
 
             Log("Selected faction " + FactionCode.name(player.faction));
-            
 
+            InitialIncome();
+
+        }
+
+        // Initial income of a player according to the picked faction
+        private void InitialIncome()
+        {
+
+            Player p = players[currentPlayer];
+
+            Faction f = p.getFaction();
+
+            p.coins = f.startingCoins;
+            p.workers = f.startingWorkers;
+            
+            p.priests = f.startingPriests;
+            p.priestsMax -= p.priests;
+
+            p.fire = f.startingFire;
+            p.water = f.startingWater;
+            p.earth = f.startingEarth;
+            p.air = f.startingAir;
+
+            p.power2 = f.startingPower;
+            p.power1 = 12 - f.startingPower;
+            
         }
 
         private void Log(string p)

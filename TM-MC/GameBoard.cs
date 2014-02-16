@@ -15,9 +15,19 @@ namespace TM_MC
 
         public Game g;
 
+        Color[] cultColors;
+
 
         public GameBoard()
         {
+
+            string[] cultColorsStr = { "#f88", "#ccf", "#b84", "#f0f0f0" };
+
+            cultColors = new Color[cultColorsStr.Count()];
+
+            for (int i = 0; i < 4; i++)
+                cultColors[i] = ColorTranslator.FromHtml(cultColorsStr[i]);
+
             InitializeComponent();
         }
 
@@ -26,6 +36,18 @@ namespace TM_MC
             foreach (Tile t in StaticMap.tiles)
             {
                 e.Graphics.FillPolygon(t.type.brush, t.hex);
+            }
+
+            //e.Graphics.DrawLine(Pens.Red, StaticMap.cultTrackOffsetX, 0, StaticMap.cultTrackOffsetX, 200);
+
+            DrawCults(e.Graphics);
+        }
+
+
+        private void DrawCults(Graphics graphics)
+        {
+            for (int i = 0; i < 4; i++)
+            {
             }
         }
     }

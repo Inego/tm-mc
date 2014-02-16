@@ -46,7 +46,9 @@ namespace TM_MC
         public bool human;
         public int faction;
 
-        public int money = 0;
+        public int vp = 20;
+
+        public int coins = 0;
         public int workers = 0;
         public int priests = 0;
         public int priestsMax = 7;
@@ -73,6 +75,13 @@ namespace TM_MC
             this.name = name;
             this.human = human;
             this.faction = faction;
+        }
+
+        public Faction getFaction()
+        {
+            Faction[] f = Faction.factions;
+            //return Faction.factions[this.faction];
+            return f[this.faction];
         }
     }
 }

@@ -10,13 +10,17 @@ namespace TM_MC
     class StaticMap
     {
 
-        public static int    tileR  = 30;
+        public static int    tileR  = 20;
         public static float  tileHR = tileR / 2;
         public static float  tileW  = (float) (tileR * Math.Sqrt(3));
         public static float  tileHW = tileW / 2;
 
         public static float mapOffsetX = 0;
         public static float mapOffsetY = 0;
+
+        public static float cultTrackOffsetX = tileW * 14;
+        public static float cultTrackLetterSize = 10;
+        public static float cultTrackHalfSpacing = 2;
 
         public static PointF[] hexagon = new PointF[]
             {

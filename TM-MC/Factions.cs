@@ -66,7 +66,7 @@ namespace TM_MC
 
 
 
-    class Faction
+    public class Faction
     {
         
         int type;
@@ -116,7 +116,7 @@ namespace TM_MC
 
         }
 
-        public static Faction[] factions = new Faction[14];
+        public static Faction[] factions;
 
         public static void AddFaction(int type,
             int startingCoins,
@@ -144,6 +144,9 @@ namespace TM_MC
 
         static Faction()
         {
+
+            factions = new Faction[15]; // 0 will remain null
+
             AddFaction(FactionCode.Fakirs,         3, 15, 0, 1, 0, 0, 1, 5);
             AddFaction(FactionCode.Nomads,         2, 15, 0, 1, 0, 1, 0, 7);
             AddFaction(FactionCode.ChaosMagicians, 4, 15, 0, 2, 0, 0, 0, 7);
@@ -159,11 +162,6 @@ namespace TM_MC
             AddFaction(FactionCode.Auren,          3, 15, 0, 0, 1, 0, 1, 7);
             AddFaction(FactionCode.Witches,        3, 15, 0, 0, 0, 0, 2, 7);
         }
-
-
-
-        
-
         
     }
 }
