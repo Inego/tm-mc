@@ -7,18 +7,31 @@ using System.Threading.Tasks;
 
 namespace TM_MC
 {
-    class Game
+    public class Game
     {
+        public static Random rnd = new Random();
+
+
         int numberOfPlayers;
         Player[] players;
 
         int currentRound;
 
+        //bool randomPlayout; // Indicates there's no
+
         int startingPlayer;
+
+        int currentPlayer;
 
         Queue<GameStage> stages;
 
-        
+        public TerrainType[] terrain;
+
+        List<int> remainingFactions;
+
+
+        public List<string> log = new List<string>();
+
 
         public Game(GameSetup gs, int startingPlayer)
         {
@@ -32,19 +45,104 @@ namespace TM_MC
 
             this.startingPlayer = startingPlayer;
 
+            terrain = new TerrainType[StaticMap.tiles.Count];
 
-            GameStage gameStage = new GameStage();
+            for (int i = 0; i < StaticMap.tiles.Count; i++)
+                terrain[i] = StaticMap.tiles[i].type;
+                
 
-            gameStage.player = this.startingPlayer;
-            gameStage.stage = GameStage.FactionPick;
 
             stages = new Queue<GameStage>();
-            stages.Enqueue(gameStage);
 
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                GameStage gameStage = new GameStage();
+                gameStage.stage = GameStage.FactionPick;
 
+                gameStage.player = this.startingPlayer + i;
+
+                if (gameStage.player >= numberOfPlayers)
+                    gameStage.player -= numberOfPlayers;
+
+                stages.Enqueue(gameStage);
+                
+            }
 
         }
 
 
+
+        internal void PerformStep()
+        {
+            if (stages.Count == 0)
+            {
+                currentPlayer = -1;
+                Log("The game is finished.");
+                return;
+            }
+
+            GameStage st = stages.Dequeue();
+
+            currentPlayer = st.player;
+
+            switch (st.stage)
+            {
+                case GameStage.FactionPick:
+                    PickFaction(st.player);
+                    break;
+
+            }
+
+        }
+
+        private void PickFaction(int p)
+        {
+            Player player = players[p];
+
+            if (player.faction > 14)
+            {
+                if (remainingFactions == null)
+                {
+                    bool available;
+                    // Initialize remaining factions list
+                    remainingFactions = new List<int>(14);
+                    for (int i = 1; i <= 14; i++)
+                    {
+                        // Check if the faction has already been taken by anyone
+                        available = true;
+                        for (int j = 0; j < numberOfPlayers; j++)
+                        {
+                            if (players[j].faction == i)
+                            {
+                                available = false;
+                                break;
+                            }
+                        }
+
+                        if (available)
+                            remainingFactions.Add(i);
+                        
+                    }
+                }
+
+                // Randomly select a player from the list
+
+                int selected = rnd.Next(remainingFactions.Count);
+
+                player.faction = remainingFactions[selected];
+
+                remainingFactions.RemoveAt(selected);
+
+            }
+
+            Log("Selected faction " + FactionCode.name(player.faction));
+            
+
+        }
+
+        private void Log(string p)
+        {
+            log.Add((currentPlayer == -1 ? "" : "Player " + currentPlayer + ": ") + p);
+        }
     }
 }

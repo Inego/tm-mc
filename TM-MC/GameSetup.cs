@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TM_MC
 {
-    class GameSetup
+    public class GameSetup
     {
         public int numberOfPlayers = 4;
         

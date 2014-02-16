@@ -39,7 +39,7 @@ namespace TM_MC
     }
 
 
-    class Player
+    public class Player
     {
         
         public string name;

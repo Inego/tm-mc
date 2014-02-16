@@ -28,13 +28,13 @@ namespace TM_MC
                 new PointF(-tileHW, -tileHR)
             };
 
-        public List<Tile> tiles = new List<Tile>();
+        public static List<Tile> tiles = new List<Tile>();
         
-        public Tile[,] grid = new Tile[11, 15]; // 9x13 with +1 null space added around
-        
-        public List<Bridge> bridges = new List<Bridge>();
+        public static Tile[,] grid = new Tile[11, 15]; // 9x13 with +1 null space added around
 
-        public StaticMap()
+        public static List<Bridge> bridges = new List<Bridge>();
+
+        static StaticMap()
         {
 
             string[] rows = 
@@ -108,29 +108,29 @@ namespace TM_MC
         }
 
 
-        private void CheckBridge(Tile land1, Tile land2, Tile river1, Tile river2)
+        private static void CheckBridge(Tile land1, Tile land2, Tile river1, Tile river2)
         {
             if (land1 != null && land2 != null && river1 == null && river2 == null)
                 AddBridge(land1, land2);
         }
 
 
-        private void AddBridge(Tile tile1, Tile tile2)
+        private static void AddBridge(Tile tile1, Tile tile2)
         {
             bridges.Add(new Bridge(tile1, tile2));
         }
 
-        private Tile bl(int y, int x)
+        private static Tile bl(int y, int x)
         {
             return grid[y + 1, x - (y % 2 == 0 ? 0 : 1)];
         }
 
-        private Tile br(int y, int x)
+        private static Tile br(int y, int x)
         {
             return grid[y + 1, x + (y % 2 == 0 ? 1 : 0)];
         }
 
-        private Tile tr(int y, int x)
+        private static Tile tr(int y, int x)
         {
             return grid[y - 1, x + (y % 2 == 0 ? 1 : 0)];
         }

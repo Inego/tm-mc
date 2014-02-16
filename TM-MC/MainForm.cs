@@ -55,14 +55,31 @@ namespace TM_MC
             //formGraphics.Dispose();
 
             GameSetup gs = new GameSetup();
-            gs.numberOfPlayers = 2;
+            gs.numberOfPlayers = 5;
 
-            g = new Game(gs, 0);
+            g = new Game(gs, 3);
 
 
             //GameSetupForm f = new GameSetupForm();
 
             //f.Show();
+
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            g.PerformStep();
+
+            TransferOutput();
+        }
+
+        private void TransferOutput()
+        {
+            foreach (string s in g.log)
+                logListBox.Items.Add(s);
+
+            g.log.Clear();
         }
     }
 }

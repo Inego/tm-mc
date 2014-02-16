@@ -23,9 +23,9 @@ namespace TM_MC
 
         private void GameBoard_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Tile t in m.tiles)
+            foreach (Tile t in StaticMap.tiles)
             {
-                formGraphics.FillPolygon(t.type.brush, t.hex);
+                e.Graphics.FillPolygon(t.type.brush, t.hex);
             }
         }
     }
