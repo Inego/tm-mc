@@ -14,7 +14,7 @@ namespace TM_MC
 
         public int factionConfigurationCode = 15; // default
 
-        public static string name(int code)
+        public static new string name(int code)
         {
             switch (code)
             {

@@ -15,18 +15,21 @@ namespace TM_MC
 
         public Game g;
 
-        Color[] cultColors;
+        Brush[] cultColors;
 
 
         public GameBoard()
         {
 
-            string[] cultColorsStr = { "#f88", "#ccf", "#b84", "#f0f0f0" };
+            string[] cultColorsStr = { "#f88", "#ccf", "#b84", "#ffffff" };
 
-            cultColors = new Color[cultColorsStr.Count()];
+            cultColors = new Brush[cultColorsStr.Count()];
+
+
 
             for (int i = 0; i < 4; i++)
-                cultColors[i] = ColorTranslator.FromHtml(cultColorsStr[i]);
+                cultColors[i] = new SolidBrush(ColorTranslator.FromHtml(cultColorsStr[i]));
+
 
             InitializeComponent();
         }
@@ -46,8 +49,14 @@ namespace TM_MC
 
         private void DrawCults(Graphics graphics)
         {
+            float localOffset = StaticMap.cultTrackOffsetX;
             for (int i = 0; i < 4; i++)
             {
+
+                graphics.FillRectangle(cultColors[i], localOffset, 0, StaticMap.cultTrackWidth, StaticMap.cultTrackHeight);
+                localOffset += StaticMap.cultTrackWidth;
+
+
             }
         }
     }

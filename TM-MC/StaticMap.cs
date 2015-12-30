@@ -21,6 +21,8 @@ namespace TM_MC
         public static float cultTrackOffsetX = tileW * 14;
         public static float cultTrackLetterSize = 10;
         public static float cultTrackHalfSpacing = 2;
+        public static float cultTrackWidth = 4 * cultTrackLetterSize + 2 * cultTrackWidth;
+        public static float cultTrackHeight = 10 * cultTrackLetterSize + 9 * cultTrackWidth;
 
         public static PointF[] hexagon = new PointF[]
             {
